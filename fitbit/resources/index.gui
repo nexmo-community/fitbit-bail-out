@@ -1,0 +1,10 @@
+<svg>
+  <image id="connectivityicon" href="disconnected.png" x="100%-50" y="10" width="40" height="40"/>
+  <use id="bailoutbutton" href="#square-button-icon" y="0" width="100%" height="100%" fill="fb-red">
+    <set href="#text" attributeName="text-buffer" to="Bail!" />
+    <set href="#text" attributeName="font-size" to="100" />
+    <set href="#image" attributeName="href" to="icon.png" />
+    <set href="#image" attributeName="height" to="60" />
+    <set href="#image" attributeName="width" to="60" />
+  </use>
+</svg>

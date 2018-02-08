@@ -1,0 +1,17 @@
+{
+  "fitbit": {
+    "appUUID": "104ccef9-ab55-40c9-aafe-157dc8e1b118",
+    "appType": "app",
+    "appDisplayName": "Bail Out",
+    "iconFile": "resources/icon.png",
+    "wipeColor": "#e91e63",
+    "requestedPermissions": [
+      "access_internet"
+    ],
+    "i18n": {
+      "en": {
+        "name": "Bail Out"
+      }
+    }
+  }
+}

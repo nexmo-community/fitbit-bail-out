@@ -1,0 +1,19 @@
+{
+  "name": "bailout-server",
+  "version": "0.0.1",
+  "description": "A server for the bailout Fitbit app.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "node index.js"
+  },
+  "author": "Mark Smith",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "dotenv": "^5.0.0",
+    "express": "^4.16.2",
+    "nexmo": "^2.1.1",
+    "uuid": "^3.1.0",
+    "winston": "^2.4.0"
+  }
+}

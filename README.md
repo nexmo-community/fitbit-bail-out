@@ -1,5 +1,7 @@
 # Fitbit Bail Out
 
+![Bail Out on a watch](mock_up.png)
+
 Nexmo :heart: Fitbit!
 
 This is a sample watch app, companion app, and server demonstrating how to integrate the Fitbit Ionic with the Nexmo Voice API.
@@ -11,3 +13,10 @@ The [fitbit](fitbit) directory contains code to be uploaded to [Fitbit Studio](h
 The Nexmo integration is implemented in a [small service](server) as a NodeJS application.
 
 Details for how this all works, and how you can run it are contained in the [blog post] this code was originally written for.
+
+## Credits
+
+* The idea for this app was the brainchild of the fantastically creative [@aaronbassett](https://twitter.com/aaronbassett)
+* This app contains icons from the [Noun Project](https://thenounproject.com/):
+    * App and button icon derived from an icon by [Adrien Coquet](https://thenounproject.com/coquet_adrien/)
+    * Connected/disconnected icons derived from an icon by [Lakshisha](https://thenounproject.com/lakshishasri/)

@@ -83,11 +83,13 @@ app.post("/bail", jsonParser, (req, res) => {
       },
       resp => logger.info("Response:", resp)
     );
-  }, 1000);
+  }, 30000);
   bailOutIds[bailOutId] = timeoutId;
   res.json({ status: "ok", id: bailOutId });
 });
 
+// This is called by Nexmo when the call is picked up.
+// It tells Nexmo to read out a message, but it could do lots of things!
 app.get("/bail/emergency-message", (req, res) => {
   res.json([
     {

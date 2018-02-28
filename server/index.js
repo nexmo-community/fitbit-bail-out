@@ -47,6 +47,11 @@ const bailOutIds = {};
 const app = express();
 const jsonParser = express.json();
 
+// Constructs an absolute URL given a request object and the desired path.
+function absoluteURL(req, path) {
+    return (req.get('x-forwarded-proto') || req.protocol) + "://" + req.get('host') + path;
+}
+
 // Request a Bail Out call
 // (The call is made 30 seconds after the request, to make it less suspicious)
 app.post("/bail", jsonParser, (req, res) => {
@@ -56,7 +61,7 @@ app.post("/bail", jsonParser, (req, res) => {
   let timeoutId = setTimeout(() => {
     delete bailOutIds[bailOutId];
 
-    logger.info("Triggering bailout");
+    logger.info("Triggering bailout to ", req.body.number);
     nexmo.calls.create({
       to: [
         {
@@ -68,11 +73,21 @@ app.post("/bail", jsonParser, (req, res) => {
         type: "phone",
         number: process.env.NEXMO_NUMBER
       },
-      answer_url: ["https://developer.nexmo.com/ncco/tts.json"]
-    });
-  }, 30000);
+      answer_url: [absoluteURL(req, "/bail/emergency-message")]
+    }, (resp) => logger.info("Response:", resp));
+  }, 1000);
   bailOutIds[bailOutId] = timeoutId;
   res.json({ status: "ok", id: bailOutId });
+});
+
+app.get("/bail/emergency-message", (req, res) => {
+    res.json([
+        {
+          "action": "talk",
+          "voiceName": "Russell",
+          "text": "Help! I've been arrested and I need you to bail me out!"
+        }
+      ])
 });
 
 // Used to cancel an impending Bail Out call.
